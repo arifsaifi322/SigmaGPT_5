@@ -11,7 +11,7 @@ export default function Sidebar(){
     
     const getAllThreads = async ()=>{
         try {
-        let url = "http://localhost:8080/api/thread";
+        let url = "https://sigmagpt-5.onrender.com/api/thread";
 
         const response = await fetch(url);
         let res = await response.json();
@@ -40,7 +40,7 @@ export default function Sidebar(){
     async function changeThread(newThreadId){
         setCurrThreadId(newThreadId);
         try {
-            const res = await fetch(`http://localhost:8080/api/thread/${newThreadId}`);
+            const res = await fetch(`https://sigmagpt-5.onrender.com/api/thread/${newThreadId}`);
             const jsonRes = await res.json();
             setPrevChat(jsonRes);
             setReply(null)
@@ -53,7 +53,7 @@ export default function Sidebar(){
 
     async function deleteThread(newThreadId){
         try {
-            const response = await fetch(`http://localhost:8080/api/thread/${newThreadId}`,{method : "DELETE"});
+            const response = await fetch(`https://sigmagpt-5.onrender.com/api/thread/${newThreadId}`,{method : "DELETE"});
             const res = await response.json();
             console.log(res);
             setAllThreads(prev => prev.filter(thread => thread.threadId !== newThreadId));

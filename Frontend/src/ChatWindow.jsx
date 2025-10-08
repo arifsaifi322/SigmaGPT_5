@@ -11,7 +11,7 @@ export default function ChatWindow(){
 
     const getReply = async () =>{
         setLoad(true);
-        let url = "http://localhost:8080/api/chat";
+        let url = "https://sigmagpt-5.onrender.com/api/chat";
         const option = {
             method : "POST",
             headers : {
